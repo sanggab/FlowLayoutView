@@ -5,6 +5,6 @@
       location = "group:FlowLayoutViewDemo/FlowLayoutViewDemo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:FlowLayoutView.xcodeproj">
+      location = "group:GabFlowLayout.xcodeproj">
    </FileRef>
 </Workspace>

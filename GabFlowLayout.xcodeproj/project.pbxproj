@@ -7,123 +7,131 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EFE6A56F2C3292A800BFCFA5 /* FlowLayoutView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE6A5652C3292A700BFCFA5 /* FlowLayoutView.framework */; };
-		EFE6A5822C32937F00BFCFA5 /* FlowLayoutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6A5812C32937F00BFCFA5 /* FlowLayoutViewTests.swift */; };
-		EFE6A5842C3293B400BFCFA5 /* FlowLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6A5832C3293B400BFCFA5 /* FlowLayoutView.swift */; };
-		EFE6A5A82C3376FD00BFCFA5 /* FlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6A5A72C3376FC00BFCFA5 /* FlowViewModel.swift */; };
-		EFE6A5AA2C337BC000BFCFA5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6A5A92C337BC000BFCFA5 /* Model.swift */; };
+		EF2697452C33C491008CBCEB /* GabFlowLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF26973A2C33C491008CBCEB /* GabFlowLayout.framework */; };
+		EF26977A2C33C529008CBCEB /* FlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2697752C33C529008CBCEB /* FlowViewModel.swift */; };
+		EF26977B2C33C529008CBCEB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2697772C33C529008CBCEB /* Model.swift */; };
+		EF26977C2C33C529008CBCEB /* FlowLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2697792C33C529008CBCEB /* FlowLayoutView.swift */; };
+		EF2697802C33C532008CBCEB /* GabFlowLayoutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF26977F2C33C532008CBCEB /* GabFlowLayoutViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EFE6A5702C3292A800BFCFA5 /* PBXContainerItemProxy */ = {
+		EF2697462C33C491008CBCEB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EFE6A5232C32923100BFCFA5 /* Project object */;
+			containerPortal = EF2697312C33C491008CBCEB /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EFE6A5642C3292A700BFCFA5;
-			remoteInfo = FlowLayoutView;
+			remoteGlobalIDString = EF2697392C33C491008CBCEB;
+			remoteInfo = GabFlowLayout;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EFE6A5652C3292A700BFCFA5 /* FlowLayoutView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlowLayoutView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFE6A56E2C3292A700BFCFA5 /* FlowLayoutViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowLayoutViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFE6A5812C32937F00BFCFA5 /* FlowLayoutViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayoutViewTests.swift; sourceTree = "<group>"; };
-		EFE6A5832C3293B400BFCFA5 /* FlowLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayoutView.swift; sourceTree = "<group>"; };
-		EFE6A5A72C3376FC00BFCFA5 /* FlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowViewModel.swift; sourceTree = "<group>"; };
-		EFE6A5A92C337BC000BFCFA5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EF26973A2C33C491008CBCEB /* GabFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GabFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF2697442C33C491008CBCEB /* GabFlowLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GabFlowLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF2697752C33C529008CBCEB /* FlowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowViewModel.swift; sourceTree = "<group>"; };
+		EF2697772C33C529008CBCEB /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EF2697792C33C529008CBCEB /* FlowLayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayoutView.swift; sourceTree = "<group>"; };
+		EF26977F2C33C532008CBCEB /* GabFlowLayoutViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GabFlowLayoutViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EFE6A5622C3292A700BFCFA5 /* Frameworks */ = {
+		EF2697372C33C491008CBCEB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EFE6A56B2C3292A700BFCFA5 /* Frameworks */ = {
+		EF2697412C33C491008CBCEB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFE6A56F2C3292A800BFCFA5 /* FlowLayoutView.framework in Frameworks */,
+				EF2697452C33C491008CBCEB /* GabFlowLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EFE6A5222C32923100BFCFA5 = {
+		EF2697302C33C491008CBCEB = {
 			isa = PBXGroup;
 			children = (
-				EFE6A57E2C3292DC00BFCFA5 /* Sources */,
-				EFE6A57C2C3292DC00BFCFA5 /* Tests */,
-				EFE6A52C2C32923100BFCFA5 /* Products */,
+				EF2697722C33C529008CBCEB /* Sources */,
+				EF26977D2C33C532008CBCEB /* Tests */,
+				EF26973B2C33C491008CBCEB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EFE6A52C2C32923100BFCFA5 /* Products */ = {
+		EF26973B2C33C491008CBCEB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EFE6A5652C3292A700BFCFA5 /* FlowLayoutView.framework */,
-				EFE6A56E2C3292A700BFCFA5 /* FlowLayoutViewTests.xctest */,
+				EF26973A2C33C491008CBCEB /* GabFlowLayout.framework */,
+				EF2697442C33C491008CBCEB /* GabFlowLayoutTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EFE6A57C2C3292DC00BFCFA5 /* Tests */ = {
+		EF2697722C33C529008CBCEB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				EFE6A57D2C3292DC00BFCFA5 /* FlowLayoutViewTests */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		EFE6A57D2C3292DC00BFCFA5 /* FlowLayoutViewTests */ = {
-			isa = PBXGroup;
-			children = (
-				EFE6A5812C32937F00BFCFA5 /* FlowLayoutViewTests.swift */,
-			);
-			path = FlowLayoutViewTests;
-			sourceTree = "<group>";
-		};
-		EFE6A57E2C3292DC00BFCFA5 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				EFE6A57F2C3292DC00BFCFA5 /* FlowLayoutView */,
+				EF2697732C33C529008CBCEB /* GabFlowLayout */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		EFE6A57F2C3292DC00BFCFA5 /* FlowLayoutView */ = {
+		EF2697732C33C529008CBCEB /* GabFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
-				EFE6A5A52C3376F100BFCFA5 /* Model */,
-				EFE6A5A42C3376ED00BFCFA5 /* ViewModel */,
-				EFE6A5832C3293B400BFCFA5 /* FlowLayoutView.swift */,
+				EF2697742C33C529008CBCEB /* ViewModel */,
+				EF2697762C33C529008CBCEB /* Model */,
+				EF2697782C33C529008CBCEB /* View */,
 			);
-			path = FlowLayoutView;
+			path = GabFlowLayout;
 			sourceTree = "<group>";
 		};
-		EFE6A5A42C3376ED00BFCFA5 /* ViewModel */ = {
+		EF2697742C33C529008CBCEB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EFE6A5A72C3376FC00BFCFA5 /* FlowViewModel.swift */,
+				EF2697752C33C529008CBCEB /* FlowViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EFE6A5A52C3376F100BFCFA5 /* Model */ = {
+		EF2697762C33C529008CBCEB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EFE6A5A92C337BC000BFCFA5 /* Model.swift */,
+				EF2697772C33C529008CBCEB /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EF2697782C33C529008CBCEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF2697792C33C529008CBCEB /* FlowLayoutView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF26977D2C33C532008CBCEB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EF26977E2C33C532008CBCEB /* GabFlowLayoutTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		EF26977E2C33C532008CBCEB /* GabFlowLayoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF26977F2C33C532008CBCEB /* GabFlowLayoutViewTests.swift */,
+			);
+			path = GabFlowLayoutTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		EFE6A5602C3292A700BFCFA5 /* Headers */ = {
+		EF2697352C33C491008CBCEB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -133,63 +141,61 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		EFE6A5642C3292A700BFCFA5 /* FlowLayoutView */ = {
+		EF2697392C33C491008CBCEB /* GabFlowLayout */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFE6A5762C3292A800BFCFA5 /* Build configuration list for PBXNativeTarget "FlowLayoutView" */;
+			buildConfigurationList = EF26974E2C33C491008CBCEB /* Build configuration list for PBXNativeTarget "GabFlowLayout" */;
 			buildPhases = (
-				EFE6A5602C3292A700BFCFA5 /* Headers */,
-				EFE6A5612C3292A700BFCFA5 /* Sources */,
-				EFE6A5622C3292A700BFCFA5 /* Frameworks */,
-				EFE6A5632C3292A700BFCFA5 /* Resources */,
+				EF2697352C33C491008CBCEB /* Headers */,
+				EF2697362C33C491008CBCEB /* Sources */,
+				EF2697372C33C491008CBCEB /* Frameworks */,
+				EF2697382C33C491008CBCEB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FlowLayoutView;
-			productName = FlowLayoutView;
-			productReference = EFE6A5652C3292A700BFCFA5 /* FlowLayoutView.framework */;
+			name = GabFlowLayout;
+			productName = GabFlowLayout;
+			productReference = EF26973A2C33C491008CBCEB /* GabFlowLayout.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		EFE6A56D2C3292A700BFCFA5 /* FlowLayoutViewTests */ = {
+		EF2697432C33C491008CBCEB /* GabFlowLayoutTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFE6A5792C3292A800BFCFA5 /* Build configuration list for PBXNativeTarget "FlowLayoutViewTests" */;
+			buildConfigurationList = EF2697512C33C491008CBCEB /* Build configuration list for PBXNativeTarget "GabFlowLayoutTests" */;
 			buildPhases = (
-				EFE6A56A2C3292A700BFCFA5 /* Sources */,
-				EFE6A56B2C3292A700BFCFA5 /* Frameworks */,
-				EFE6A56C2C3292A700BFCFA5 /* Resources */,
+				EF2697402C33C491008CBCEB /* Sources */,
+				EF2697412C33C491008CBCEB /* Frameworks */,
+				EF2697422C33C491008CBCEB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EFE6A5712C3292A800BFCFA5 /* PBXTargetDependency */,
+				EF2697472C33C491008CBCEB /* PBXTargetDependency */,
 			);
-			name = FlowLayoutViewTests;
-			productName = FlowLayoutViewTests;
-			productReference = EFE6A56E2C3292A700BFCFA5 /* FlowLayoutViewTests.xctest */;
+			name = GabFlowLayoutTests;
+			productName = GabFlowLayoutTests;
+			productReference = EF2697442C33C491008CBCEB /* GabFlowLayoutTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EFE6A5232C32923100BFCFA5 /* Project object */ = {
+		EF2697312C33C491008CBCEB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					EFE6A5642C3292A700BFCFA5 = {
+					EF2697392C33C491008CBCEB = {
 						CreatedOnToolsVersion = 15.2;
-						LastSwiftMigration = 1520;
 					};
-					EFE6A56D2C3292A700BFCFA5 = {
+					EF2697432C33C491008CBCEB = {
 						CreatedOnToolsVersion = 15.2;
-						LastSwiftMigration = 1520;
 					};
 				};
 			};
-			buildConfigurationList = EFE6A5262C32923100BFCFA5 /* Build configuration list for PBXProject "FlowLayoutView" */;
+			buildConfigurationList = EF2697342C33C491008CBCEB /* Build configuration list for PBXProject "GabFlowLayout" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -197,26 +203,26 @@
 				en,
 				Base,
 			);
-			mainGroup = EFE6A5222C32923100BFCFA5;
-			productRefGroup = EFE6A52C2C32923100BFCFA5 /* Products */;
+			mainGroup = EF2697302C33C491008CBCEB;
+			productRefGroup = EF26973B2C33C491008CBCEB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EFE6A5642C3292A700BFCFA5 /* FlowLayoutView */,
-				EFE6A56D2C3292A700BFCFA5 /* FlowLayoutViewTests */,
+				EF2697392C33C491008CBCEB /* GabFlowLayout */,
+				EF2697432C33C491008CBCEB /* GabFlowLayoutTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EFE6A5632C3292A700BFCFA5 /* Resources */ = {
+		EF2697382C33C491008CBCEB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EFE6A56C2C3292A700BFCFA5 /* Resources */ = {
+		EF2697422C33C491008CBCEB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -226,36 +232,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EFE6A5612C3292A700BFCFA5 /* Sources */ = {
+		EF2697362C33C491008CBCEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFE6A5AA2C337BC000BFCFA5 /* Model.swift in Sources */,
-				EFE6A5A82C3376FD00BFCFA5 /* FlowViewModel.swift in Sources */,
-				EFE6A5842C3293B400BFCFA5 /* FlowLayoutView.swift in Sources */,
+				EF26977C2C33C529008CBCEB /* FlowLayoutView.swift in Sources */,
+				EF26977A2C33C529008CBCEB /* FlowViewModel.swift in Sources */,
+				EF26977B2C33C529008CBCEB /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EFE6A56A2C3292A700BFCFA5 /* Sources */ = {
+		EF2697402C33C491008CBCEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFE6A5822C32937F00BFCFA5 /* FlowLayoutViewTests.swift in Sources */,
+				EF2697802C33C532008CBCEB /* GabFlowLayoutViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EFE6A5712C3292A800BFCFA5 /* PBXTargetDependency */ = {
+		EF2697472C33C491008CBCEB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EFE6A5642C3292A700BFCFA5 /* FlowLayoutView */;
-			targetProxy = EFE6A5702C3292A800BFCFA5 /* PBXContainerItemProxy */;
+			target = EF2697392C33C491008CBCEB /* GabFlowLayout */;
+			targetProxy = EF2697462C33C491008CBCEB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		EFE6A54D2C32923300BFCFA5 /* Debug */ = {
+		EF26974C2C33C491008CBCEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -289,6 +295,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -315,10 +322,12 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		EFE6A54E2C32923300BFCFA5 /* Release */ = {
+		EF26974D2C33C491008CBCEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -352,6 +361,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -371,13 +381,14 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		EFE6A5772C3292A800BFCFA5 /* Debug */ = {
+		EF26974F2C33C491008CBCEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -389,7 +400,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,22 +408,18 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SimSangGab.FlowLayoutView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SimSangGab.GabFlowLayout;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		EFE6A5782C3292A800BFCFA5 /* Release */ = {
+		EF2697502C33C491008CBCEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -425,7 +431,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -434,51 +439,44 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SimSangGab.FlowLayoutView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SimSangGab.GabFlowLayout;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		EFE6A57A2C3292A800BFCFA5 /* Debug */ = {
+		EF2697522C33C491008CBCEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JA868URLCA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.SimSangGab.FlowLayoutViewTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SimSangGab.GabFlowLayoutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/FlowLayoutViewTests/FlowLayoutViewTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		EFE6A57B2C3292A800BFCFA5 /* Release */ = {
+		EF2697532C33C491008CBCEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JA868URLCA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.SimSangGab.FlowLayoutViewTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SimSangGab.GabFlowLayoutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/FlowLayoutViewTests/FlowLayoutViewTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -487,34 +485,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EFE6A5262C32923100BFCFA5 /* Build configuration list for PBXProject "FlowLayoutView" */ = {
+		EF2697342C33C491008CBCEB /* Build configuration list for PBXProject "GabFlowLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFE6A54D2C32923300BFCFA5 /* Debug */,
-				EFE6A54E2C32923300BFCFA5 /* Release */,
+				EF26974C2C33C491008CBCEB /* Debug */,
+				EF26974D2C33C491008CBCEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EFE6A5762C3292A800BFCFA5 /* Build configuration list for PBXNativeTarget "FlowLayoutView" */ = {
+		EF26974E2C33C491008CBCEB /* Build configuration list for PBXNativeTarget "GabFlowLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFE6A5772C3292A800BFCFA5 /* Debug */,
-				EFE6A5782C3292A800BFCFA5 /* Release */,
+				EF26974F2C33C491008CBCEB /* Debug */,
+				EF2697502C33C491008CBCEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EFE6A5792C3292A800BFCFA5 /* Build configuration list for PBXNativeTarget "FlowLayoutViewTests" */ = {
+		EF2697512C33C491008CBCEB /* Build configuration list for PBXNativeTarget "GabFlowLayoutTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFE6A57A2C3292A800BFCFA5 /* Debug */,
-				EFE6A57B2C3292A800BFCFA5 /* Release */,
+				EF2697522C33C491008CBCEB /* Debug */,
+				EF2697532C33C491008CBCEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EFE6A5232C32923100BFCFA5 /* Project object */;
+	rootObject = EF2697312C33C491008CBCEB /* Project object */;
 }

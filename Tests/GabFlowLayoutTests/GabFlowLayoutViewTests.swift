@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import FlowLayoutView
+@testable import GabFlowLayout
 
 final class FlowLayoutViewTests: XCTestCase {
 

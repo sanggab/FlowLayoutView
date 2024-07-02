@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF2697822C33C571008CBCEB /* GabFlowLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2697812C33C571008CBCEB /* GabFlowLayout.framework */; };
+		EF2697832C33C571008CBCEB /* GabFlowLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF2697812C33C571008CBCEB /* GabFlowLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EFE6A4F92C32921A00BFCFA5 /* FlowLayoutViewDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6A4F82C32921A00BFCFA5 /* FlowLayoutViewDemoApp.swift */; };
 		EFE6A4FB2C32921A00BFCFA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6A4FA2C32921A00BFCFA5 /* ContentView.swift */; };
 		EFE6A4FD2C32921B00BFCFA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE6A4FC2C32921B00BFCFA5 /* Assets.xcassets */; };
@@ -33,7 +35,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EF2697842C33C571008CBCEB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EF2697832C33C571008CBCEB /* GabFlowLayout.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		EF2697812C33C571008CBCEB /* GabFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GabFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF353EED2C33B4F0005479AB /* FlowLayoutView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlowLayoutView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE6A4F52C32921A00BFCFA5 /* FlowLayoutViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowLayoutViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE6A4F82C32921A00BFCFA5 /* FlowLayoutViewDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayoutViewDemoApp.swift; sourceTree = "<group>"; };
@@ -45,6 +62,9 @@
 		EFE6A50F2C32921B00BFCFA5 /* FlowLayoutViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowLayoutViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE6A5132C32921C00BFCFA5 /* FlowLayoutViewDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayoutViewDemoUITests.swift; sourceTree = "<group>"; };
 		EFE6A5152C32921C00BFCFA5 /* FlowLayoutViewDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayoutViewDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EFFD31F62C33BAEA00E66422 /* FlowLayoutView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlowLayoutView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFFD31FA2C33BF3500E66422 /* FlowLayoutView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlowLayoutView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFFD32232C33C30700E66422 /* GabFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GabFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2697822C33C571008CBCEB /* GabFlowLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +96,10 @@
 		EF353EEC2C33B4F0005479AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF2697812C33C571008CBCEB /* GabFlowLayout.framework */,
+				EFFD32232C33C30700E66422 /* GabFlowLayout.framework */,
+				EFFD31FA2C33BF3500E66422 /* FlowLayoutView.framework */,
+				EFFD31F62C33BAEA00E66422 /* FlowLayoutView.framework */,
 				EF353EED2C33B4F0005479AB /* FlowLayoutView.framework */,
 			);
 			name = Frameworks;
@@ -147,6 +172,7 @@
 				EFE6A4F12C32921A00BFCFA5 /* Sources */,
 				EFE6A4F22C32921A00BFCFA5 /* Frameworks */,
 				EFE6A4F32C32921A00BFCFA5 /* Resources */,
+				EF2697842C33C571008CBCEB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
