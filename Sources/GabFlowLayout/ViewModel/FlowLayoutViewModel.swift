@@ -1,5 +1,5 @@
 //
-//  FlowViewModel.swift
+//  FlowLayoutViewModel.swift
 //  FlowLayoutView
 //
 //  Created by Gab on 2024/07/02.
@@ -17,7 +17,7 @@ protocol FlowFeatures {
 }
 
 
-class FlowViewModel<E: Equatable>: ObservableObject, FlowFeatures {
+class FlowLayoutViewModel<E: Equatable>: ObservableObject, FlowFeatures {
     typealias State = FlowState
     typealias Action = FlowAction
     

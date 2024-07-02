@@ -7,12 +7,24 @@
 
 import SwiftUI
 
-public struct FlowLayoutView<Style: FlowLayoutStyle>: View {
-    @ObservedObject private var viewModel: FlowViewModel<Style.Element> = .init()
+public struct FlowLayoutView<Style: FlowLayoutStyle, ContentView: View>: View {
+    @ObservedObject private var viewModel: FlowLayoutViewModel<Style.Element> = .init()
     
-//    public var style: Style
+    @ViewBuilder private var content: (Style.Element) -> ContentView
     
-    public init(style: Style) {
+    public init(item: [Style.Element],
+                configuration: FlowConfiguration = .zero,
+                alignment: FlowAlignment = .leading,
+                @ViewBuilder content: @escaping (Style.Element) -> ContentView) {
+        self.content = content
+        viewModel.action(.updateModel(FlowLayoutModel(item: item,
+                                                      configuration: configuration,
+                                                      alignment: alignment)))
+    }
+    
+    public init(style: Style,
+                @ViewBuilder content: @escaping (Style.Element) -> ContentView) {
+        self.content = content
         viewModel.action(.updateModel(FlowLayoutModel(item: style.item.list,
                                                       configuration: style.configuration,
                                                       alignment: style.alignment)))
