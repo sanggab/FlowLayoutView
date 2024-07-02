@@ -6,17 +6,15 @@
 //
 
 import SwiftUI
-import FlowLayoutView
+//import FlowLayoutView
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+//        FlowLayoutView(style: FlowLayoutModel(item: ["1", "2", "3"],
+//                                              configuration: .init(lineSpacing: 5,
+//                                                                   itemSpacing: 5),
+//                                              alignment: .leading))
+        Text("hi")
     }
 }
 

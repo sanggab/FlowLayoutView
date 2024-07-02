@@ -7,20 +7,19 @@
 
 import SwiftUI
 
-public protocol FlowLayoutStyle {
+public protocol FlowLayoutStyle: Equatable {
     associatedtype Element: Equatable
-    associatedtype ContentView: View
     
-    var items: FlowItem<Element> { get }
+    var item: FlowItem<Element> { get }
     var configuration: FlowConfiguration { get }
     var alignment: FlowAlignment { get }
 }
 
 public struct FlowItem<E: Equatable>: Equatable {
-    var items: [E]
+    var list: [E]
     
-    public init(items: [E]) {
-        self.items = items
+    public init(list: [E]) {
+        self.list = list
     }
 }
 
@@ -43,17 +42,17 @@ public enum FlowAlignment: Equatable {
     case trailing
 }
 
-public struct FlowLayoutModel<E: Equatable, ContentView: View>: FlowLayoutStyle {
+public struct FlowLayoutModel<E: Equatable>: FlowLayoutStyle {
     public typealias Element = E
     
-    public var items: FlowItem<Element>
+    public var item: FlowItem<Element>
     public var configuration: FlowConfiguration
     public var alignment: FlowAlignment
     
-    public init(items: FlowItem<Element>,
+    public init(item: [Element],
                 configuration: FlowConfiguration = .zero,
                 alignment: FlowAlignment = .leading) {
-        self.items = items
+        self.item = FlowItem(list: item)
         self.configuration = configuration
         self.alignment = alignment
     }
