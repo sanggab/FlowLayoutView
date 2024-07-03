@@ -24,12 +24,16 @@ class FlowLayoutViewModel<E: Equatable>: ObservableObject, FlowFeatures {
     struct FlowState: Equatable {
         var model: FlowLayoutModel<E> = .init(item: [])
         var isUpdated: UUID = UUID()
+        
+        var alignments: [CGSize] = []
     }
     
     enum FlowAction: Equatable {
         case onAppear
         
         case updateModel(FlowLayoutModel<E>)
+        
+        case updateAlignment(CGSize)
     }
     
     @Published private var state: FlowState = .init()
@@ -53,6 +57,9 @@ class FlowLayoutViewModel<E: Equatable>: ObservableObject, FlowFeatures {
             print("updateModel : \(model)")
             update(\.model, newValue: model)
             print("staet model : \(state.model)")
+        case .updateAlignment(let size):
+            state.alignments.append(size)
+            print("state.alignments : \(state.alignments)")
         }
     }
     
