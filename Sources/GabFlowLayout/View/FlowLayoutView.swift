@@ -31,9 +31,33 @@ public struct FlowLayoutView<Style: FlowLayoutStyle, ContentView: View>: View {
     }
     
     public var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .onAppear {
-                
+        if viewModel(\.model).alignment == .leading {
+            leadingAlignmentView
+        } else {
+            trailingAlignmentView
+        }
+    }
+}
+
+
+private extension FlowLayoutView {
+    
+    @ViewBuilder
+    var leadingAlignmentView: some View {
+        ZStack {
+            ForEach(Array(viewModel(\.model).item.list.enumerated()), id: \.offset) { index, item in
+                content(item)
             }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .background(Color.orange)
+    }
+}
+
+private extension FlowLayoutView {
+    
+    @ViewBuilder
+    var trailingAlignmentView: some View {
+        Text("trailingAlignmentView")
     }
 }

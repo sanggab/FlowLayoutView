@@ -9,28 +9,22 @@ import SwiftUI
 //import FlowLayoutView
 import GabFlowLayout
 
-//struct Test: FlowLayoutStyle {
-//    var item: FlowItem<String>
-//    
-//    var configuration: FlowConfiguration
-//    
-//    var alignment: FlowAlignment
-//    
-//}
+struct Test: FlowLayoutStyle {
+    var item: FlowItem<String>
+    
+    var configuration: FlowConfiguration
+    
+    var alignment: FlowAlignment
+    
+}
 
 struct ContentView: View {
+    var list: [String] = [
+        "가나다라", "마바사", "아자", "차", "카타파하", "나는 심상갑", "구인구직중이지"
+    ]
+    
     var body: some View {
-        FlowLayoutView(style: FlowLayoutModel(item: ["1", "2", "3"],
-                                              configuration: .init(lineSpacing: 5,
-                                                                   itemSpacing: 5),
-                                              alignment: .leading)) { element in
-            
-        }
-        
-        
-//        FlowLayoutView(style: Test(item: .init(list: ["1"]), configuration: .zero, alignment: .leading)) { value in
-//            
-//        }
+        Text("1")
     }
 }
 
