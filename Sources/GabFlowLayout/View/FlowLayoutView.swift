@@ -20,7 +20,7 @@ struct BoundsPreferenceKey: PreferenceKey {
 }
 
 public struct FlowLayoutView<Content: View>: View {
-    @StateObject private var viewModel: FlowLayoutViewModel<String> = .init()
+//    @StateObject private var viewModel: FlowLayoutViewModel<String> = .init()
     @ViewBuilder private var content: () -> Content
     
     private var axis: Axis
@@ -31,55 +31,41 @@ public struct FlowLayoutView<Content: View>: View {
     }
     
     public var body: some View {
-        ZStack(alignment: .topLeading) {
-            content()
-                .fixedSize()
-                .alignmentGuide(.leading) { d in
-                    switch axis {
-                    case .horizontal:
-                        print("horizontal")
-                    case .vertical:
-                        print("vertical")
+        GeometryReader { proxy in
+            var currentLineWidth: CGFloat = .zero
+            var maxHeight: CGFloat = .zero
+            
+            
+            ZStack(alignment: .topLeading) {
+                content()
+                    .alignmentGuide(.leading) { d in
+                        switch axis {
+                        case .horizontal:
+                            print("horizontal")
+                            
+                            if currentLineWidth + d.width > proxy.size.width {
+                                print("넘엉")
+                            } else {
+                                print("안넘엉")
+                            }
+                            
+                        case .vertical:
+                            print("vertical")
+                        }
+                        
+                        return d[.leading]
                     }
-                    
-                    return d[.leading]
-                }
-                .onAppear {
-                    viewModel.action(.updateIndex(1))
-                }
-            
-            Color.clear
-                .frame(width: .zero, height: .zero)
-                .alignmentGuide(.leading, computeValue: { dimension in
-                    print("hoho")
-                    
-                    return dimension[.leading]
-                })
-                .hidden()
+                
+                Color.clear
+                    .frame(width: .zero, height: .zero)
+                    .alignmentGuide(.leading, computeValue: { dimension in
+                        print("hoho")
+                        
+                        return dimension[.leading]
+                    })
+                    .hidden()
+            }
         }
-
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
-
-private extension FlowLayoutView {
-    
-    func calLeadingHorizontal(d: ViewDimensions, proxy: GeometryProxy) -> CGFloat {
-        let currentLineWidth: CGFloat = viewModel(\.currentLineWidth)
-        print("width : \(d.width)")
-        print("currentLineWidth : \(currentLineWidth)")
-        print("view Size: \(proxy.size)")
-        
-        if currentLineWidth + d.width > proxy.size.width {
-            print("다음줄로 넘어가야됨")
-            return d.width
-        } else {
-            print("그냥 붙히자")
-//            viewModel.action(.updateCurrentLineWidth(d.width))
-            
-            return currentLineWidth + d.width
-        }
-        
-        
-    }
-}
-
