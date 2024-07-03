@@ -20,20 +20,27 @@ protocol FlowFeatures {
 class FlowLayoutViewModel<E: Equatable>: ObservableObject, FlowFeatures {
     typealias State = FlowState
     typealias Action = FlowAction
+    typealias Line = Int
     
     struct FlowState: Equatable {
         var model: FlowLayoutModel<E> = .init(item: [])
         var isUpdated: UUID = UUID()
         
+        var index: Int = .zero
+        var currentLineWidth: CGFloat = .zero
+        var currentLineHeight: CGFloat = .zero
         var alignments: [CGSize] = []
     }
     
     enum FlowAction: Equatable {
-        case onAppear
-        
         case updateModel(FlowLayoutModel<E>)
         
+        case updateIndex(Int)
         case updateAlignment(CGSize)
+        case updateCurrentLineWidth(CGFloat)
+        case updatecurrentLineHeight(CGFloat)
+        
+        case reset
     }
     
     @Published private var state: FlowState = .init()
@@ -50,15 +57,30 @@ class FlowLayoutViewModel<E: Equatable>: ObservableObject, FlowFeatures {
     }
     
     func action(_ action: FlowAction) {
+        print("action : \(action)")
         switch action {
-        case .onAppear:
-            print("onAppear")
         case .updateModel(let model):
-            print("updateModel : \(model)")
             update(\.model, newValue: model)
             print("staet model : \(state.model)")
+            
+        case .updateIndex(let index):
+            state.index = index
+            print("state.index : \(state.index)")
+            
         case .updateAlignment(let size):
             state.alignments.append(size)
+            print("state.alignments : \(state.alignments)")
+            
+        case .updateCurrentLineWidth(let width):
+            state.currentLineWidth += width
+            
+        case .updatecurrentLineHeight(let height):
+            state.currentLineHeight += height
+            
+        case .reset:
+            state.alignments = []
+            state.currentLineWidth = .zero
+            state.currentLineHeight = .zero
             print("state.alignments : \(state.alignments)")
         }
     }

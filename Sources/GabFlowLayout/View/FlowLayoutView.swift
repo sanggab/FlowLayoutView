@@ -1,74 +1,85 @@
 //
 //  FlowLayoutView.swift
-//  FlowLayoutView
+//  GabFlowLayout
 //
-//  Created by Gab on 2024/07/01.
+//  Created by Gab on 2024/07/03.
 //
 
 import SwiftUI
 
-public struct FlowLayoutView<E: Equatable, ContentView: View>: View {
-    @ObservedObject private var viewModel: FlowLayoutViewModel<E> = .init()
-    
-//    @ViewBuilder private var content: (E) -> ContentView
-    @ViewBuilder private var content: (E) -> ContentView
-    
-    public init(item: [E],
-                configuration: FlowConfiguration = .zero,
-                alignment: FlowAlignment = .leading,
-                @ViewBuilder content: @escaping (E) -> ContentView) {
-        self.content = content
-        viewModel.action(.updateModel(FlowLayoutModel(item: item,
-                                                      configuration: configuration,
-                                                      alignment: alignment)))
+struct BoundsPreferenceKey: PreferenceKey {
+    typealias Bounds = Anchor<CGRect>
+    static var defaultValue = [Bounds]()
+
+    static func reduce(
+        value: inout [Bounds],
+        nextValue: () -> [Bounds]
+    ) {
+        value.append(contentsOf: nextValue())
     }
+}
+
+public struct FlowLayoutView<Content: View>: View {
+    @StateObject private var viewModel: FlowLayoutViewModel<String> = .init()
+    @ViewBuilder private var content: () -> Content
     
-//    public init(item: [Style.Element],
-//                configuration: FlowConfiguration = .zero,
-//                alignment: FlowAlignment = .leading,
-//                @ViewBuilder content: @escaping (Style.Element) -> ContentView) {
-//        self.content = content
-//        viewModel.action(.updateModel(FlowLayoutModel(item: item,
-//                                                      configuration: configuration,
-//                                                      alignment: alignment)))
-//    }
-//    
-//    public init(style: Style,
-//                @ViewBuilder content: @escaping (Style.Element) -> ContentView) {
-//        self.content = content
-//        viewModel.action(.updateModel(FlowLayoutModel(item: style.item.list,
-//                                                      configuration: style.configuration,
-//                                                      alignment: style.alignment)))
-//    }
+    private var axis: Axis
+    
+    public init(_ axis: Axis, @ViewBuilder content: @escaping () -> Content) {
+        self.axis = axis
+        self.content = content
+    }
     
     public var body: some View {
-        if viewModel(\.model).alignment == .leading {
-            leadingAlignmentView
+        ZStack(alignment: .topLeading) {
+            content()
+                .fixedSize()
+                .alignmentGuide(.leading) { d in
+                    switch axis {
+                    case .horizontal:
+                        print("horizontal")
+                    case .vertical:
+                        print("vertical")
+                    }
+                    
+                    return d[.leading]
+                }
+                .onAppear {
+                    viewModel.action(.updateIndex(1))
+                }
+            
+            Color.clear
+                .frame(width: .zero, height: .zero)
+                .alignmentGuide(.leading, computeValue: { dimension in
+                    print("hoho")
+                    
+                    return dimension[.leading]
+                })
+                .hidden()
+        }
+
+    }
+}
+
+private extension FlowLayoutView {
+    
+    func calLeadingHorizontal(d: ViewDimensions, proxy: GeometryProxy) -> CGFloat {
+        let currentLineWidth: CGFloat = viewModel(\.currentLineWidth)
+        print("width : \(d.width)")
+        print("currentLineWidth : \(currentLineWidth)")
+        print("view Size: \(proxy.size)")
+        
+        if currentLineWidth + d.width > proxy.size.width {
+            print("다음줄로 넘어가야됨")
+            return d.width
         } else {
-            trailingAlignmentView
+            print("그냥 붙히자")
+//            viewModel.action(.updateCurrentLineWidth(d.width))
+            
+            return currentLineWidth + d.width
         }
+        
+        
     }
 }
 
-
-private extension FlowLayoutView {
-    
-    @ViewBuilder
-    var leadingAlignmentView: some View {
-        ZStack {
-            ForEach(Array(viewModel(\.model).item.list.enumerated()), id: \.offset) { index, item in
-                content(item)
-            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color.orange)
-    }
-}
-
-private extension FlowLayoutView {
-    
-    @ViewBuilder
-    var trailingAlignmentView: some View {
-        Text("trailingAlignmentView")
-    }
-}

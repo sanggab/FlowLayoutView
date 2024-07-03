@@ -42,7 +42,14 @@ struct ContentView: View {
 //                .background(.gray)
 //        })
 //        .padding(.all, 5)
-        Text("1")
+        
+        FlowLayoutView(.horizontal) {
+            Text("1")
+            
+            Text("222")
+            
+            Text("333333")
+        }
     }
 }
 
