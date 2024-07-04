@@ -44,28 +44,44 @@ struct ContentView: View {
 //        .padding(.all, 5)
         
         FlowLayoutView(.horizontal) {
+            Group {
+                Text("1")
+                    .background(Color.white)
+                
+                Text("222")
+                    .background(Color.white)
+                
+                Text("333333")
+                    .font(.system(size: 20))
+                    .background(Color.white)
+                
+                Text("444444444444444dadsadddddddd")
+                    .font(.system(size: 20))
+                    .background(Color.white)
+
+                Text("5555555555555555555555")
+                    .background(Color.white)
+
+                Text("6666666666666666666666666")
+                    .background(Color.white)
+                
+                Text("666666666666666666666666666666666666aaaaa")
+                    .background(Color.white)
+                
+                
+                Rectangle()
+                    .fill(.blue)
+                    .frame(width: 300, height: 300)
+                
+                
+                Text("12")
+            }
+            .background(Color.yellow)
+            
+            
             Text("1")
-                .background(Color.white)
             
-            Text("222")
-                .background(Color.white)
-            
-            Text("333333")
-                .font(.system(size: 20))
-                .background(Color.white)
-            
-            Text("444444444444444dadsadddddddd")
-                .font(.system(size: 20))
-                .background(Color.white)
-
-            Text("5555555555555555555555")
-                .background(Color.white)
-
-            Text("6666666666666666666666666")
-                .background(Color.white)
-            
-            Text("666666666666666666666666666666666666aaaaa")
-                .background(Color.white)
+            Text("12234234")
         }
         .configurationSpacing(line: 5, item: 5)
     }

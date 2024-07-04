@@ -78,7 +78,6 @@ public struct FlowLayoutView<Content: View>: View {
 //                                
 //                                maxHeight = max(maxHeight, d.height)
 //                            }
-                            
                             if abs(currentLineWidth) + d.width > proxy.size.width {
                                 print("현재 라인에 못 담음")
                                 let height = (alignmentsSize
@@ -86,6 +85,7 @@ public struct FlowLayoutView<Content: View>: View {
                                                     .max() ?? d.height) + configuration.lineSpacing
                                 
                                 lineHeight = height
+                                currentLineWidth = .zero
                                 result = d[.leading]
                             } else {
                                 print("현재 라인에 담을 수 있음")
