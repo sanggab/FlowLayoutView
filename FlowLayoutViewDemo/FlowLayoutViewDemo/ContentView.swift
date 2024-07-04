@@ -49,7 +49,14 @@ struct ContentView: View {
             Text("222")
             
             Text("333333")
+            
+//            Text("444444444444444")
+//            
+//            Text("5555555555555555555555")
+//            
+//            Text("6666666666666666666666666")
         }
+        .configurationSpacing(line: 5, item: 5)
     }
 }
 
