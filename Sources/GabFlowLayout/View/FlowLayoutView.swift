@@ -36,7 +36,7 @@ public struct FlowLayoutView<Content: View>: View {
         GeometryReader { proxy in
             var currentLineWidth: CGFloat = .zero
             var alignmentsSize: [CGSize] = []
-            var maxHeight: CGFloat = .zero
+            var lineHeight: CGFloat = .zero
             var index: Int = .zero
             
             ZStack(alignment: .topLeading) {
@@ -49,28 +49,57 @@ public struct FlowLayoutView<Content: View>: View {
                             
                             var result: CGFloat = .zero
                             
+//                            if abs(currentLineWidth) + d.width > proxy.size.width {
+//                                print("넘엉")
+//                                print("maxHeight: \(maxHeight)")
+//                                let width: CGFloat = d.width + configuration.itemSpacing
+//                                currentLineWidth -= width
+//
+//                                alignmentsSize.append(CGSize(width: <#T##Int#>, height: <#T##Int#>))
+//                                
+//                            } else {
+//                                print("안넘엉")
+//                                if index == .zero {
+//                                    
+//                                    let width: CGFloat = d.width + configuration.itemSpacing
+//                                    currentLineWidth -= width
+//                                    alignmentsSize.append(CGSize(width: currentLineWidth, height: d.height))
+//                                    
+//                                    result = d[.leading]
+//                                    
+//                                } else {
+//                                    
+//                                    let width: CGFloat = d.width + configuration.itemSpacing
+//                                    currentLineWidth -= width
+//                                    alignmentsSize.append(CGSize(width: currentLineWidth, height: d.height))
+//                                    
+//                                    result = alignmentsSize[safe: index - 1]?.width ?? -width
+//                                }
+//                                
+//                                maxHeight = max(maxHeight, d.height)
+//                            }
+                            
                             if abs(currentLineWidth) + d.width > proxy.size.width {
-                                print("넘엉")
+                                print("현재 라인에 못 담음")
+                                print("다음줄로 밀어넣어라")
+                                print("lineHeight: \(lineHeight)")
+                                var height = (alignmentsSize
+                                                    .map{ $0.height }
+                                                    .max() ?? d.height) + configuration.lineSpacing
+                                print("height: \(height)")
+                                
+                                
                             } else {
-                                print("안넘엉")
-                                if index == .zero {
-                                    
-                                    let width: CGFloat = d.width + configuration.itemSpacing
-                                    currentLineWidth -= width
-                                    alignmentsSize.append(CGSize(width: currentLineWidth, height: d.height))
-                                    
-                                    result = d[.leading]
-                                    
-                                } else {
-                                    
-                                    let width: CGFloat = d.width + configuration.itemSpacing
-                                    currentLineWidth -= width
-                                    alignmentsSize.append(CGSize(width: currentLineWidth, height: d.height))
-                                    
-                                    result = alignmentsSize[safe: index - 1]?.width ?? -width
-                                }
+                                print("현재 라인에 담을 수 있음")
                             }
                             
+                            result = alignmentsSize[safe: index]?.width ?? currentLineWidth
+                            
+                            let width: CGFloat = d.width + configuration.itemSpacing
+                            currentLineWidth -= width
+                            
+                            alignmentsSize.append(CGSize(width: width, height: d.height))
+//
                             print("result: \(result)")
                             
                             return result
@@ -100,8 +129,9 @@ public struct FlowLayoutView<Content: View>: View {
                     .alignmentGuide(.leading, computeValue: { dimension in
                         print("hoho")
                         
+                        alignmentsSize = []
                         currentLineWidth = .zero
-                        maxHeight = .zero
+                        lineHeight = .zero
                         index = .zero
                         
                         return dimension[.leading]

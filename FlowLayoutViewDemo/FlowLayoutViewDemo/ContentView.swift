@@ -45,13 +45,19 @@ struct ContentView: View {
         
         FlowLayoutView(.horizontal) {
             Text("1")
+                .background(Color.white)
             
             Text("222")
+                .background(Color.white)
             
             Text("333333")
+                .font(.system(size: 18))
+                .background(Color.white)
             
-//            Text("444444444444444")
-//            
+            Text("444444444444444dadsadddddddd")
+                .font(.system(size: 20))
+                .background(Color.white)
+//
 //            Text("5555555555555555555555")
 //            
 //            Text("6666666666666666666666666")
