@@ -51,16 +51,21 @@ struct ContentView: View {
                 .background(Color.white)
             
             Text("333333")
-                .font(.system(size: 18))
+                .font(.system(size: 20))
                 .background(Color.white)
             
             Text("444444444444444dadsadddddddd")
                 .font(.system(size: 20))
                 .background(Color.white)
-//
-//            Text("5555555555555555555555")
-//            
-//            Text("6666666666666666666666666")
+
+            Text("5555555555555555555555")
+                .background(Color.white)
+
+            Text("6666666666666666666666666")
+                .background(Color.white)
+            
+            Text("666666666666666666666666666666666666aaaaa")
+                .background(Color.white)
         }
         .configurationSpacing(line: 5, item: 5)
     }

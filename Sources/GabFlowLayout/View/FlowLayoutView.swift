@@ -37,7 +37,7 @@ public struct FlowLayoutView<Content: View>: View {
             var currentLineWidth: CGFloat = .zero
             var alignmentsSize: [CGSize] = []
             var lineHeight: CGFloat = .zero
-            var index: Int = .zero
+//            var index: Int = .zero
             
             ZStack(alignment: .topLeading) {
                 content()
@@ -81,26 +81,21 @@ public struct FlowLayoutView<Content: View>: View {
                             
                             if abs(currentLineWidth) + d.width > proxy.size.width {
                                 print("현재 라인에 못 담음")
-                                print("다음줄로 밀어넣어라")
-                                print("lineHeight: \(lineHeight)")
-                                var height = (alignmentsSize
+                                let height = (alignmentsSize
                                                     .map{ $0.height }
                                                     .max() ?? d.height) + configuration.lineSpacing
-                                print("height: \(height)")
                                 
-                                
+                                lineHeight = height
+                                result = d[.leading]
                             } else {
                                 print("현재 라인에 담을 수 있음")
+                                result = currentLineWidth
                             }
-                            
-                            result = alignmentsSize[safe: index]?.width ?? currentLineWidth
                             
                             let width: CGFloat = d.width + configuration.itemSpacing
                             currentLineWidth -= width
                             
-                            alignmentsSize.append(CGSize(width: width, height: d.height))
-//
-                            print("result: \(result)")
+                            alignmentsSize.append(CGSize(width: width, height: lineHeight + d.height))
                             
                             return result
                             
@@ -111,17 +106,20 @@ public struct FlowLayoutView<Content: View>: View {
                         return d[.leading]
                     }
                     .alignmentGuide(.top) { d in
+                        
+//                        index += 1
+                        
                         switch axis {
                         case .horizontal:
                             print("horizontal top")
                             
+                            return -lineHeight
                         case .vertical:
                             print("vertical top")
+                            return .zero
                         }
+//                        print("lineHeight2222: \(lineHeight)")
                         
-                        index += 1
-                        
-                        return d[.top]
                     }
                 
                 Color.clear
@@ -132,7 +130,7 @@ public struct FlowLayoutView<Content: View>: View {
                         alignmentsSize = []
                         currentLineWidth = .zero
                         lineHeight = .zero
-                        index = .zero
+//                        index = .zero
                         
                         return dimension[.leading]
                     })
