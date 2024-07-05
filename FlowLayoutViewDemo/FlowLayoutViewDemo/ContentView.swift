@@ -43,48 +43,98 @@ struct ContentView: View {
 //        })
 //        .padding(.all, 5)
         
-        FlowLayoutView(.vertical) {
-//            ForEach(list, id: \.self) { string in
-//                Text(string)
-//            }
-            Group {
-                Text("1")
-                    .background(Color.white)
-                
-                Text("222")
-                    .background(Color.white)
-                
-                Text("333333")
-                    .font(.system(size: 20))
-//                    .frame(height: 100)
-                    .background(Color.white)
-                
-                Text("444444444444")
-                    .font(.system(size: 20))
-                    .frame(height: 500)
-                    .background(Color.white)
-                
-                Text("444444444444")
-                    .font(.system(size: 20))
-                    .frame(height: 300)
-                    .background(Color.white)
-//
-                
-                Rectangle()
-                    .fill(.blue)
-                    .frame(width: 300, height: 300)
-//
-//                
-//                Text("12")
-            }
-//            .background(Color.yellow)
-            
-            
+//        ScrollView(.horizontal) {
 //            Text("1")
+//                .background(Color.white)
 //            
-//            Text("12234234")
+//            Text("222")
+//                .background(Color.white)
+//            
+//            Text("333333")
+//                .font(.system(size: 20))
+//                .background(Color.white)
+//            
+//            Text("444444444444")
+//                .font(.system(size: 20))
+//                .frame(height: 500)
+//                .background(Color.white)
+//            
+//            Text("444444444444")
+//                .font(.system(size: 20))
+//                .frame(height: 300)
+//                .background(Color.white)
+//            
+//            Rectangle()
+//                .fill(.blue)
+//                .frame(width: 1000, height: 300)
+//        }
+//        .background(Color.pink)
+        
+//        FlowLayoutView(.vertical) {
+//            Group {
+//                Text("1")
+//                    .background(Color.white)
+//                
+//                Text("222")
+//                    .background(Color.white)
+//                
+//                Text("333333")
+//                    .font(.system(size: 20))
+//                    .background(Color.white)
+//                
+//                Text("444444444444")
+//                    .font(.system(size: 20))
+//                    .frame(height: 500)
+//                    .background(Color.white)
+//                
+//                Text("444444444444")
+//                    .font(.system(size: 20))
+//                    .frame(height: 300)
+//                    .background(Color.white)
+//                
+////                Rectangle()
+////                    .fill(.blue)
+////                    .frame(width: 300, height: 300)
+//            }
+//        }
+//        .configurationSpacing(line: 5, item: 5)
+        
+        ScrollView(.vertical) {
+            FlowLayoutView(.horizontal) {
+                Group {
+                    Text("1")
+                        .background(Color.white)
+                    
+                    Text("222")
+                        .background(Color.white)
+                    
+                    Text("333333")
+                        .font(.system(size: 20))
+                        .frame(width: 300)
+                        .background(Color.white)
+                    
+                    Text("444444444444")
+                        .font(.system(size: 20))
+                        .frame(height: 500)
+                        .background(Color.gray)
+                    
+                    Text("444444444444")
+                        .font(.system(size: 20))
+                        .frame(height: 300)
+                        .background(Color.red)
+                    
+                    Rectangle()
+                        .fill(.blue)
+                        .frame(width: 300, height: 300)
+                    
+                    Text("222")
+                        .background(Color.white)
+
+                }
+            }
+            .configurationSpacing(line: 5, item: 5)
+//            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
-        .configurationSpacing(line: 5, item: 5)
     }
 }
 
