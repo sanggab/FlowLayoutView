@@ -43,7 +43,10 @@ struct ContentView: View {
 //        })
 //        .padding(.all, 5)
         
-        FlowLayoutView(.horizontal) {
+        FlowLayoutView(.vertical) {
+//            ForEach(list, id: \.self) { string in
+//                Text(string)
+//            }
             Group {
                 Text("1")
                     .background(Color.white)
@@ -53,35 +56,33 @@ struct ContentView: View {
                 
                 Text("333333")
                     .font(.system(size: 20))
+//                    .frame(height: 100)
                     .background(Color.white)
                 
-                Text("444444444444444dadsadddddddd")
+                Text("444444444444")
                     .font(.system(size: 20))
-                    .background(Color.white)
-
-                Text("5555555555555555555555")
-                    .background(Color.white)
-
-                Text("6666666666666666666666666")
+                    .frame(height: 500)
                     .background(Color.white)
                 
-                Text("666666666666666666666666666666666666aaaaa")
+                Text("444444444444")
+                    .font(.system(size: 20))
+                    .frame(height: 300)
                     .background(Color.white)
-                
+//
                 
                 Rectangle()
                     .fill(.blue)
                     .frame(width: 300, height: 300)
-                
-                
-                Text("12")
+//
+//                
+//                Text("12")
             }
-            .background(Color.yellow)
+//            .background(Color.yellow)
             
             
-            Text("1")
-            
-            Text("12234234")
+//            Text("1")
+//            
+//            Text("12234234")
         }
         .configurationSpacing(line: 5, item: 5)
     }
