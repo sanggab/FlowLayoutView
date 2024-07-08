@@ -19,6 +19,18 @@ struct BoundsPreferenceKey: PreferenceKey {
     }
 }
 
+struct CGPointPreferenceKey: PreferenceKey {
+    typealias Bounds = Anchor<CGPoint>
+    static var defaultValue = [Bounds]()
+
+    static func reduce(
+        value: inout [Bounds],
+        nextValue: () -> [Bounds]
+    ) {
+        value.append(contentsOf: nextValue())
+    }
+}
+
 struct CGSizePreferenceKey: PreferenceKey {
     static var defaultValue: CGSize = .zero
     
@@ -29,7 +41,7 @@ struct CGSizePreferenceKey: PreferenceKey {
 }
 
 public struct FlowLayoutView<Content: View>: View {
-//    @StateObject private var viewModel: FlowLayoutViewModel<String> = .init()
+    //    @StateObject private var viewModel: FlowLayoutViewModel<String> = .init()
     @ViewBuilder private var content: () -> Content
     @State private var frameSize: CGSize = .zero
     
@@ -44,6 +56,18 @@ public struct FlowLayoutView<Content: View>: View {
     }
     
     public var body: some View {
+        if axis == .horizontal {
+            horizontalView
+        } else {
+            verticalView
+        }
+    }
+}
+
+private extension FlowLayoutView {
+    
+    @ViewBuilder
+    var horizontalView: some View {
         ZStack(alignment: .topLeading) {
             
             var lineWidth: CGFloat = .zero
@@ -51,79 +75,39 @@ public struct FlowLayoutView<Content: View>: View {
             var alignmentsSize: [CGSize] = []
             
             content()
+                .anchorPreference(key: CGPointPreferenceKey.self, value: .topLeading) { anchor in
+                    [anchor]
+                }
+                .anchorPreference(key: BoundsPreferenceKey.self, value: .bounds) { anchor in
+                    [anchor]
+                }
                 .alignmentGuide(.leading) { d in
-                    
                     var result: CGFloat = .zero
-                    
-//                    print("frameSize: \(frameSize)")
-                    
-                    switch axis {
-                    case .horizontal:
-                        if abs(lineWidth) + d.width > frameSize.width {
-                            
-                            let height: CGFloat = (alignmentsSize
-                                                .map{ $0.height }
-                                                .max() ?? d.height) + configuration.lineSpacing
-                            
-                            lineHeight = height
-                            lineWidth = .zero
-                            result = d[.leading]
-                        } else {
-                            
-                            result = lineWidth
-                        }
+
+                    print("frameSize: \(frameSize)")
+                    if abs(lineWidth) + d.width > frameSize.width {
                         
-                        let width: CGFloat = d.width + configuration.itemSpacing
-                        lineWidth -= width
+                        let height: CGFloat = (alignmentsSize
+                                            .map{ $0.height }
+                                            .max() ?? d.height) + configuration.lineSpacing
                         
-                        alignmentsSize.append(CGSize(width: width, height: lineHeight + d.height))
+                        lineHeight = height
+                        lineWidth = .zero
+                        result = d[.leading]
+                    } else {
                         
-                        return result
-                        
-                    case .vertical:
-                        
-                        if abs(lineHeight) + d.height > frameSize.height {
-                            print("alignmentsSize: \(alignmentsSize)")
-                            let width: CGFloat = (alignmentsSize
-                                                .map{ $0.width }
-                                                .max() ?? d.width) + configuration.itemSpacing
-                            print("lineWidth: \(lineWidth)")
-                            print("width: \(width)")
-                            
-                            lineHeight = .zero
-                            lineWidth = -width
-                            result = lineWidth
-                        } else {
-                            result = lineWidth
-                        }
-                        
-                        
-                        let height: CGFloat = d.height + configuration.lineSpacing
-                        let width: CGFloat = d.width
-                        alignmentsSize.append(CGSize(width: abs(lineWidth) + width, height: height))
-                        
+                        result = lineWidth
                     }
                     
+                    let width: CGFloat = d.width + configuration.itemSpacing
+                    lineWidth -= width
+                    
+                    alignmentsSize.append(CGSize(width: width, height: lineHeight + d.height))
+
                     return result
                 }
                 .alignmentGuide(.top) { d in
-                    
-                    switch axis {
-                    case .horizontal:
-                        
-                        return -lineHeight
-                        
-                    case .vertical:
-                        var result: CGFloat = .zero
-                        
-                        result -= lineHeight
-                        
-                        let height: CGFloat = d.height + configuration.lineSpacing
-                        
-                        lineHeight += height
-                        
-                        return result
-                    }
+                    return -lineHeight
                 }
             
             Color.clear
@@ -138,15 +122,125 @@ public struct FlowLayoutView<Content: View>: View {
                 })
                 .hidden()
         }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-//        .background(Color.pink)
-        .background(setPreferenceSize())
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .backgroundPreferenceValue(CGPointPreferenceKey.self) { value in
+            GeometryReader { proxy in
+                Color.clear
+                    .onAppear {
+                        let values: [CGPoint] = value.map {
+                            print("horizontal point : \(proxy[$0])")
+                            return proxy[$0]
+                        }
+                    }
+            }
+        }
+        .backgroundPreferenceValue(BoundsPreferenceKey.self) { value in
+            GeometryReader { proxy in
+                Color.clear
+                    .onAppear {
+                        print("proxy : \(proxy.frame(in: .global).size)")
+                        let values: [CGRect] = value.map {
+                            print("horizontal bounds : \(proxy[$0])")
+                            return proxy[$0]
+                        }
+                    }
+            }
+        }
+    }
+}
+
+private extension FlowLayoutView {
+    
+    @ViewBuilder
+    var verticalView: some View {
+        ZStack(alignment: .topLeading) {
+            
+            var lineWidth: CGFloat = .zero
+            var lineHeight: CGFloat = .zero
+            var alignmentsSize: [CGSize] = []
+            
+            content()
+                .anchorPreference(key: CGPointPreferenceKey.self, value: .topLeading) { anchor in
+                    [anchor]
+                }
+                .anchorPreference(key: BoundsPreferenceKey.self, value: .bounds) { anchor in
+                    [anchor]
+                }
+                .alignmentGuide(.leading) { d in
+                    var result: CGFloat = .zero
+                    
+                    if abs(lineHeight) + d.height > frameSize.height {
+                        
+                        let width: CGFloat = (alignmentsSize
+                                            .map{ $0.width }
+                                            .max() ?? d.width) + configuration.itemSpacing
+                        
+                        lineHeight = .zero
+                        lineWidth = -width
+                        result = lineWidth
+                    } else {
+                        result = lineWidth
+                    }
+                    
+                    
+                    let height: CGFloat = d.height + configuration.lineSpacing
+                    let width: CGFloat = d.width
+                    alignmentsSize.append(CGSize(width: abs(lineWidth) + width, height: height))
+                    
+                    return result
+                }
+                .alignmentGuide(.top) { d in
+                    var result: CGFloat = .zero
+                    
+                    result -= lineHeight
+                    
+                    let height: CGFloat = d.height + configuration.lineSpacing
+                    
+                    lineHeight += height
+                    
+                    return result
+                }
+            
+            Color.clear
+                .frame(width: .zero, height: .zero)
+                .alignmentGuide(.leading, computeValue: { dimension in
+                    
+                    alignmentsSize = []
+                    lineWidth = .zero
+                    lineHeight = .zero
+                    
+                    return dimension[.leading]
+                })
+                .hidden()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .backgroundPreferenceValue(CGPointPreferenceKey.self) { value in
+            GeometryReader { proxy in
+                Color.clear
+                    .onAppear {
+                        frameSize = proxy.size
+                        let values: [CGPoint] = value.map {
+                            print("vertical point : \(proxy[$0])")
+                            return proxy[$0]
+                        }
+                    }
+            }
+        }
+        .backgroundPreferenceValue(BoundsPreferenceKey.self) { value in
+            GeometryReader { proxy in
+                Color.clear
+                    .onAppear {
+                        let values: [CGRect] = value.map {
+                            print("vertical bounds : \(proxy[$0])")
+                            return proxy[$0]
+                        }
+                    }
+            }
+        }
     }
     
     private func setPreferenceSize() -> some View {
         GeometryReader { proxy in
-//            Color.clear
-//                .preference(key: CGSizePreferenceKey.self, value: proxy.size)
             Color.clear
                 .onAppear {
                     frameSize = proxy.size
