@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EF2697452C33C491008CBCEB /* GabFlowLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF26973A2C33C491008CBCEB /* GabFlowLayout.framework */; };
-		EF26977A2C33C529008CBCEB /* FlowLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2697752C33C529008CBCEB /* FlowLayoutViewModel.swift */; };
 		EF26977B2C33C529008CBCEB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2697772C33C529008CBCEB /* Model.swift */; };
-		EF26977C2C33C529008CBCEB /* FlowLayoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2697792C33C529008CBCEB /* FlowLayoutListView.swift */; };
 		EF2697802C33C532008CBCEB /* GabFlowLayoutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF26977F2C33C532008CBCEB /* GabFlowLayoutViewTests.swift */; };
 		EF9B4D1A2C3514C500FC85FF /* FlowLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B4D192C3514C500FC85FF /* FlowLayoutView.swift */; };
 /* End PBXBuildFile section */
@@ -28,9 +26,7 @@
 /* Begin PBXFileReference section */
 		EF26973A2C33C491008CBCEB /* GabFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GabFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF2697442C33C491008CBCEB /* GabFlowLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GabFlowLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF2697752C33C529008CBCEB /* FlowLayoutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayoutViewModel.swift; sourceTree = "<group>"; };
 		EF2697772C33C529008CBCEB /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		EF2697792C33C529008CBCEB /* FlowLayoutListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayoutListView.swift; sourceTree = "<group>"; };
 		EF26977F2C33C532008CBCEB /* GabFlowLayoutViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GabFlowLayoutViewTests.swift; sourceTree = "<group>"; };
 		EF9B4D192C3514C500FC85FF /* FlowLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,19 +79,10 @@
 		EF2697732C33C529008CBCEB /* GabFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
-				EF2697742C33C529008CBCEB /* ViewModel */,
 				EF2697762C33C529008CBCEB /* Model */,
 				EF2697782C33C529008CBCEB /* View */,
 			);
 			path = GabFlowLayout;
-			sourceTree = "<group>";
-		};
-		EF2697742C33C529008CBCEB /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EF2697752C33C529008CBCEB /* FlowLayoutViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EF2697762C33C529008CBCEB /* Model */ = {
@@ -110,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				EF9B4D192C3514C500FC85FF /* FlowLayoutView.swift */,
-				EF2697792C33C529008CBCEB /* FlowLayoutListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -240,8 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF9B4D1A2C3514C500FC85FF /* FlowLayoutView.swift in Sources */,
-				EF26977C2C33C529008CBCEB /* FlowLayoutListView.swift in Sources */,
-				EF26977A2C33C529008CBCEB /* FlowLayoutViewModel.swift in Sources */,
 				EF26977B2C33C529008CBCEB /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
