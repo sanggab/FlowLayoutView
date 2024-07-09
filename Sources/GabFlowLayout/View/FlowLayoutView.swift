@@ -156,8 +156,11 @@ private extension FlowLayoutView {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(setPreferenceSize())
     }
+}
+
+private extension FlowLayoutView {
     
-    private func setPreferenceSize() -> some View {
+    func setPreferenceSize() -> some View {
         GeometryReader { proxy in
             Color.clear
                 .onAppear {
