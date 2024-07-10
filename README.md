@@ -13,9 +13,10 @@
 * [Documentation](#documentation)
 * [FlowLayout](#flowLayout)
   * [Axis](#axis)
-    * [horizontal](#horizontal)
-    * [vertical](#vertical)
-
+    * [Horizontal](#horizontal)
+    * [Vertical](#vertical)
+* [Modifier](#modifier)
+  * [configurationSpacing](#configurationSpacing)
 
 <a name="documentation"></a>
 # Documentation
@@ -27,14 +28,18 @@ SwiftUI에서 ChipView를 구현하기 위해선 Apple에서 iOS 16이상에서 
 <a name="flowLayout"></a>
 # FlowLayout
 
+
+
 <a name="axis"></a>
 ### Axis
 
 <a name="horizontal"></a>
-* `horizontal`
+* `Horizontal`
 
     ##### Usage example:
-    ```
+    ```swift
+    import GabFlowLayout
+    
         var list: [String] = [
             "Sim",
             "Sang",
@@ -73,10 +78,12 @@ SwiftUI에서 ChipView를 구현하기 위해선 Apple에서 iOS 16이상에서 
 
 
 <a name="vertical"></a>
-* `vertical`
+* `Vertical`
 
   ##### Usage example:
-    ```
+    ```swift
+    import GabFlowLayout
+    
         var list: [String] = [
             "Sim",
             "Sang",
@@ -112,3 +119,17 @@ SwiftUI에서 ChipView를 구현하기 위해선 Apple에서 iOS 16이상에서 
     ```
     
     <img src="doc_img/demo/vertical-demo.jpg" width="370"/>
+
+
+<a name="Modifier"></a>
+# Modifier
+
+<a name="configurationSpacing"></a>
+* `func configurationSpacing(line: CGFloat = .zero, item: CGFloat = .zero) -> FlowLayoutView`   
+   View들에 spacing을 적용시켜준다.   
+
+   horziontal은 가로로 배치되기 때문에 각 View들의 가로 spacing은 item에 의해 적용, 세로 spacing은 line에 의해 적용된다.
+  
+   vertical은 세로로 배치되기 때문에 각 View들의 세로 spacing은 item에 의해 적용, 가로 spacing은 line에 의해 적용된다.
+   
+
