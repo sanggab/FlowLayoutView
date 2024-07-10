@@ -21,6 +21,7 @@ public struct FlowLayoutView<Content: View>: View {
     @State private var frameSize: CGSize = .zero
     
     private var axis: Axis
+    private var scrollMode: Bool = false
     
     private var configuration: FlowConfiguration = .zero
     
@@ -178,4 +179,6 @@ public extension FlowLayoutView {
                                                itemSpacing: item)
         return view
     }
+    
+//    func scrollMode(_ state: Bool)
 }
