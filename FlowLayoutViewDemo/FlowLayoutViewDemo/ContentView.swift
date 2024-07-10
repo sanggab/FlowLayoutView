@@ -23,7 +23,22 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        FlowLayoutView(.vertical) {
+//        FlowLayoutView(.horizontal) {
+//            ForEach(list, id: \.self) { string in
+//                Text(string)
+//                    .font(.headline)
+//                    .padding(.all, 2)
+//                    .background(.mint)
+//                    .cornerRadius(8)
+//            }
+//
+//        }
+//        .configurationSpacing(line: 5, item: 5)
+//        .scrollMode(true)
+//        .padding(.all, 10)
+//        .background(.pink)
+        
+        FlowLayoutView(.horizontal) {
             ForEach(list, id: \.self) { string in
                 Text(string)
                     .font(.headline)
@@ -33,15 +48,18 @@ struct ContentView: View {
             }
             
             Rectangle()
-                .fill(.pink)
-                .frame(width: 100, height: 500)
-            
-            RoundedRectangle(cornerRadius: 12)
                 .fill(.blue)
-                .frame(width: 100, height: 500)
+                .frame(width: 100, height: 200)
+            
+            Rectangle()
+                .fill(.blue)
+                .frame(width: 100, height: 300)
         }
         .configurationSpacing(line: 5, item: 5)
-        .padding(.all, 10)
+        .scrollMode(true)
+//        .frame(width: 300, height: 300)
+//        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.pink)
     }
 }
 

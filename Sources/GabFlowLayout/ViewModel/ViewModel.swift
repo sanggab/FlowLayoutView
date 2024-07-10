@@ -32,7 +32,6 @@ class FlowLayoutViewModel: ObservableObject, FlowFeatures {
     
     @Published private var state: FlowState = .init()
     
-    
     func callAsFunction<V>(_ keyPath: KeyPath<State, V>) -> V where V : Equatable {
         return state[keyPath: keyPath]
     }
@@ -41,6 +40,7 @@ class FlowLayoutViewModel: ObservableObject, FlowFeatures {
         switch action {
         case .updScrollMode(let mode):
             update(\.scrollMode, value: mode)
+//            print("scrollMode: \(state.scrollMode)")
         }
     }
 }

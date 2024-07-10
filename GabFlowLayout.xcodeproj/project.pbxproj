@@ -12,6 +12,7 @@
 		EF2697802C33C532008CBCEB /* GabFlowLayoutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF26977F2C33C532008CBCEB /* GabFlowLayoutViewTests.swift */; };
 		EF9B4D1A2C3514C500FC85FF /* FlowLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B4D192C3514C500FC85FF /* FlowLayoutView.swift */; };
 		EFDECF6E2C3E460700BA26CE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDECF6D2C3E460700BA26CE /* ViewModel.swift */; };
+		EFDECF712C3E5B6400BA26CE /* PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDECF702C3E5B6400BA26CE /* PreferenceKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		EF26977F2C33C532008CBCEB /* GabFlowLayoutViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GabFlowLayoutViewTests.swift; sourceTree = "<group>"; };
 		EF9B4D192C3514C500FC85FF /* FlowLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayoutView.swift; sourceTree = "<group>"; };
 		EFDECF6D2C3E460700BA26CE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		EFDECF702C3E5B6400BA26CE /* PreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		EF2697732C33C529008CBCEB /* GabFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
+				EFDECF6F2C3E5B3600BA26CE /* PreferenceKey */,
 				EFDECF6C2C3E460100BA26CE /* ViewModel */,
 				EF2697762C33C529008CBCEB /* Model */,
 				EF2697782C33C529008CBCEB /* View */,
@@ -126,6 +129,14 @@
 				EFDECF6D2C3E460700BA26CE /* ViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EFDECF6F2C3E5B3600BA26CE /* PreferenceKey */ = {
+			isa = PBXGroup;
+			children = (
+				EFDECF702C3E5B6400BA26CE /* PreferenceKey.swift */,
+			);
+			path = PreferenceKey;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +249,7 @@
 			files = (
 				EF9B4D1A2C3514C500FC85FF /* FlowLayoutView.swift in Sources */,
 				EFDECF6E2C3E460700BA26CE /* ViewModel.swift in Sources */,
+				EFDECF712C3E5B6400BA26CE /* PreferenceKey.swift in Sources */,
 				EF26977B2C33C529008CBCEB /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
