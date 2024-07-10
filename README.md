@@ -12,6 +12,9 @@
 ### Content
 * [Documentation](#documentation)
 * [FlowLayout](#flowLayout)
+  * [Axis](#axis)
+    * [horizontal](#horizontal)
+    * [vertical](#vertical)
 
 
 <a name="documentation"></a>
@@ -24,8 +27,10 @@ SwiftUI에서 ChipView를 구현하기 위해선 Apple에서 iOS 16이상에서 
 <a name="flowLayout"></a>
 # FlowLayout
 
+<a name="axis"></a>
 ### Axis
 
+<a name="horizontal"></a>
 * `horizontal`
 
     ##### Usage example:
@@ -67,6 +72,7 @@ SwiftUI에서 ChipView를 구현하기 위해선 Apple에서 iOS 16이상에서 
     <img src="doc_img/demo/horizontal-demo.jpg" width="370"/>
 
 
+<a name="vertical"></a>
 * `vertical`
 
   ##### Usage example:
