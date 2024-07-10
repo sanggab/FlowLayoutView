@@ -113,7 +113,7 @@ private extension FlowLayoutView {
                         
                         let width: CGFloat = (alignmentsSize
                                             .map{ $0.width }
-                                            .max() ?? d.width) + configuration.itemSpacing
+                                            .max() ?? d.width) + configuration.lineSpacing
                         
                         lineHeight = .zero
                         lineWidth = -width
@@ -123,7 +123,7 @@ private extension FlowLayoutView {
                     }
                     
                     
-                    let height: CGFloat = d.height + configuration.lineSpacing
+                    let height: CGFloat = d.height + configuration.itemSpacing
                     let width: CGFloat = d.width
                     alignmentsSize.append(CGSize(width: abs(lineWidth) + width, height: height))
                     
@@ -134,7 +134,7 @@ private extension FlowLayoutView {
                     
                     result -= lineHeight
                     
-                    let height: CGFloat = d.height + configuration.lineSpacing
+                    let height: CGFloat = d.height + configuration.itemSpacing
                     
                     lineHeight += height
                     

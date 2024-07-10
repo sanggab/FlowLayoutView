@@ -31,6 +31,14 @@ struct ContentView: View {
                     .background(.mint)
                     .cornerRadius(8)
             }
+            
+//            Rectangle()
+//                .fill(.pink)
+//                .frame(width: 300, height: 100)
+//            
+//            RoundedRectangle(cornerRadius: 12)
+//                .fill(.blue)
+//                .frame(width: 350, height: 150)
         }
         .configurationSpacing(line: 5, item: 5)
         .padding(.all, 10)
