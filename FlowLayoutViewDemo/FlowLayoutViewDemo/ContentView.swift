@@ -22,22 +22,7 @@ struct ContentView: View {
         "Gab's 4th SwiftUI Library"
     ]
     
-    var body: some View {
-//        FlowLayoutView(.horizontal) {
-//            ForEach(list, id: \.self) { string in
-//                Text(string)
-//                    .font(.headline)
-//                    .padding(.all, 2)
-//                    .background(.mint)
-//                    .cornerRadius(8)
-//            }
-//
-//        }
-//        .configurationSpacing(line: 5, item: 5)
-//        .scrollMode(true)
-//        .padding(.all, 10)
-//        .background(.pink)
-        
+    var body: some View {        
         FlowLayoutView(.vertical) {
             ForEach(list, id: \.self) { string in
                 Text(string)
@@ -52,15 +37,14 @@ struct ContentView: View {
                 .frame(width: 200, height: 100)
 //
             Rectangle()
-                .fill(.gray)
+                .fill(.pink)
                 .frame(width: 300, height: 150)
         }
         .configurationSpacing(line: 5, item: 5)
         .layoutMode(.scroll(false))
         .frame(width: 300, height: 300)
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.pink)
         .padding(.all, 10)
+        .background(.black.opacity(0.5))
     }
 }
 
