@@ -173,9 +173,13 @@ private extension FlowLayoutView {
                          let bounds: [CGRect] = value.map { proxy[$0] }
                          
                          let maxRect: CGRect? = bounds
-                                                    .sorted(by: { $0.maxY >= $1.maxY})
-                                                    .sorted(by: { $0.height > $1.height })
-                                                    .first
+                             .max {
+                                 if $0.origin.y == $1.origin.y {
+                                     return $0.height < $1.height
+                                 } else {
+                                     return $0.origin.y < $1.origin.y
+                                 }
+                             }
                          
                          if let maxRect {
                              if maxRect.origin.y + maxRect.height > proxy.size.height {
@@ -338,11 +342,15 @@ private extension FlowLayoutView {
                     .onAppear {
                         
                         let bounds: [CGRect] = value.map { proxy[$0] }
-                        
+
                         let maxRect: CGRect? = bounds
-                                                    .sorted(by: { $0.maxX >= $1.maxX })
-                                                    .sorted(by: { $0.width > $1.width })
-                                                    .first
+                            .max {
+                                if $0.origin.x == $1.origin.x {
+                                    return $0.width < $1.width
+                                } else {
+                                    return $0.origin.x < $1.origin.x
+                                }
+                            }
                         
                         if let maxRect {
                             if maxRect.origin.x + maxRect.width > proxy.size.width {

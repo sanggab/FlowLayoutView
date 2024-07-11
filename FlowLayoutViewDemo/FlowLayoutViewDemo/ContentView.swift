@@ -22,8 +22,8 @@ struct ContentView: View {
         "Gab's 4th SwiftUI Library"
     ]
     
-    var body: some View {        
-        FlowLayoutView(.vertical) {
+    var body: some View {
+        FlowLayoutView(.horizontal) {
             ForEach(list, id: \.self) { string in
                 Text(string)
                     .font(.headline)
@@ -33,18 +33,18 @@ struct ContentView: View {
             }
             
             Rectangle()
-                .fill(.blue)
-                .frame(width: 200, height: 100)
-//
-            Rectangle()
                 .fill(.pink)
-                .frame(width: 300, height: 150)
+                .frame(width: 300, height: 100)
+            
+            RoundedRectangle(cornerRadius: 12)
+                .fill(.blue)
+            .frame(width: 350, height: 150)
         }
         .configurationSpacing(line: 5, item: 5)
         .layoutMode(.scroll(false))
         .frame(width: 300, height: 300)
         .padding(.all, 10)
-        .background(.black.opacity(0.5))
+        .background(.gray)
     }
 }
 
