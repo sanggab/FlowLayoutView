@@ -23,7 +23,7 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        FlowLayoutView(.horizontal) {
+        FlowLayoutView(.vertical) {
             ForEach(list, id: \.self) { string in
                 Text(string)
                     .font(.headline)
@@ -32,16 +32,24 @@ struct ContentView: View {
                     .cornerRadius(8)
             }
             
+//            Rectangle()
+//                .fill(.pink)
+//                .frame(width: 300, height: 100)
+//            
+//            RoundedRectangle(cornerRadius: 12)
+//                .fill(.blue)
+//                .frame(width: 350, height: 150)
+            
             Rectangle()
                 .fill(.pink)
-                .frame(width: 300, height: 100)
+                .frame(width: 100, height: 500)
             
             RoundedRectangle(cornerRadius: 12)
                 .fill(.blue)
-            .frame(width: 350, height: 150)
+                .frame(width: 100, height: 500)
         }
         .configurationSpacing(line: 5, item: 5)
-        .layoutMode(.scroll(false))
+        //        .layoutMode(.scroll(false))
         .frame(width: 300, height: 300)
         .padding(.all, 10)
         .background(.gray)
