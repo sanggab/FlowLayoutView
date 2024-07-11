@@ -29,7 +29,7 @@ public enum FlowLayoutMode: Equatable {
     case scroll(Bool)
     
     /// Flexible 기능
-    case flexible
+//    case flexible
 }
 
 public extension FlowLayoutMode {
@@ -39,8 +39,8 @@ public extension FlowLayoutMode {
             return false
         case .scroll(let bool):
             return bool
-        case .flexible:
-            return false
+//        case .flexible:
+//            return false
         }
     }
 }

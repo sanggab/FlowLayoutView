@@ -38,7 +38,7 @@ struct ContentView: View {
 //        .padding(.all, 10)
 //        .background(.pink)
         
-        FlowLayoutView(.horizontal) {
+        FlowLayoutView(.vertical) {
             ForEach(list, id: \.self) { string in
                 Text(string)
                     .font(.headline)
@@ -49,15 +49,15 @@ struct ContentView: View {
             
             Rectangle()
                 .fill(.blue)
-                .frame(width: 100, height: 200)
-            
+                .frame(width: 200, height: 100)
+//
             Rectangle()
-                .fill(.blue)
-                .frame(width: 100, height: 300)
+                .fill(.gray)
+                .frame(width: 300, height: 150)
         }
         .configurationSpacing(line: 5, item: 5)
         .layoutMode(.scroll(false))
-        .frame(width: 300, height: 300, alignment: .topTrailing)
+        .frame(width: 300, height: 300)
 //        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.pink)
         .padding(.all, 10)

@@ -9,11 +9,11 @@ import SwiftUI
 
 public struct FlowLayoutView<Content: View>: View {
     @ViewBuilder private var content: () -> Content
-    @State private var frameSize: CGSize = .zero
     
     private var axis: Axis
     
     @ObservedObject private var viewModel: FlowLayoutViewModel = .init()
+    @State private var frameSize: CGSize = .zero
     
     public init(_ axis: Axis,
                 @ViewBuilder content: @escaping () -> Content) {
@@ -108,6 +108,7 @@ private extension FlowLayoutView {
 //        .background(Color.black.opacity(0.7))
     }
     
+    
     @ViewBuilder
     var nonScrollHorizontalView: some View {
         GeometryReader { proxy in
@@ -178,15 +179,15 @@ private extension FlowLayoutView {
                              return proxy[$0]
                          }
                          
-                         let max = bounds
+                         let maxRect = bounds
                                         .sorted(by: { $0.maxY >= $1.maxY})
                                         .sorted(by: { $0.height > $1.height })
                                         .first
                          
-                         print("max : \(max)")
+                         print("maxRect : \(maxRect)")
                          
-                         if let max {
-                             if max.origin.y + max.height > proxy.size.height {
+                         if let maxRect {
+                             if maxRect.origin.y + maxRect.height > proxy.size.height {
                                  print("사이즈가 넘어버림")
                                  if case .scroll = viewModel(\.layoutMode) {
 //                                     isOn = true
@@ -208,62 +209,173 @@ private extension FlowLayoutView {
     
     @ViewBuilder
     var verticalView: some View {
-        ZStack(alignment: .topLeading) {
-            
-            var lineWidth: CGFloat = .zero
-            var lineHeight: CGFloat = .zero
-            var alignmentsSize: [CGSize] = []
-            
-            content()
-                .alignmentGuide(.leading) { d in
-                    var result: CGFloat = .zero
-                    
-                    if abs(lineHeight) + d.height > frameSize.height {
-                        
-                        let width: CGFloat = (alignmentsSize
-                            .map{ $0.width }
-                            .max() ?? d.width) + viewModel(\.configuration).lineSpacing
-                        
-                        lineHeight = .zero
-                        lineWidth = -width
-                        result = lineWidth
-                    } else {
-                        result = lineWidth
-                    }
-                    
-                    
-                    let height: CGFloat = d.height + viewModel(\.configuration).itemSpacing
-                    let width: CGFloat = d.width
-                    alignmentsSize.append(CGSize(width: abs(lineWidth) + width, height: height))
-                    
-                    return result
-                }
-                .alignmentGuide(.top) { d in
-                    var result: CGFloat = .zero
-                    
-                    result -= lineHeight
-                    
-                    let height: CGFloat = d.height + viewModel(\.configuration).itemSpacing
-                    
-                    lineHeight += height
-                    
-                    return result
-                }
-            
-            Color.clear
-                .frame(width: .zero, height: .zero)
-                .alignmentGuide(.leading, computeValue: { dimension in
-                    
-                    alignmentsSize = []
-                    lineWidth = .zero
-                    lineHeight = .zero
-                    
-                    return dimension[.leading]
-                })
-                .hidden()
+        if viewModel(\.isOn) {
+            scrollVerticalView
+        } else {
+            nonScrollVerticalView
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(setPreferenceSize())
+    }
+    
+    @ViewBuilder
+    var scrollVerticalView: some View {
+        ScrollView(.horizontal, showsIndicators: viewModel(\.layoutMode).showIndicators) {
+            GeometryReader { proxy in
+                let _ = print("proxy22 : \(proxy.size)")
+                ZStack(alignment: .topLeading) {
+                    let _ = print("proxy size: \(proxy.size)")
+                    var lineWidth: CGFloat = .zero
+                    var lineHeight: CGFloat = .zero
+                    var alignmentsSize: [CGSize] = []
+                    
+                    content()
+                        .anchorPreference(key: BoundsPreferenceKey.self, value: .bounds) { anchor in
+                            [anchor]
+                        }
+                        .alignmentGuide(.leading) { d in
+                            var result: CGFloat = .zero
+                            
+                            if abs(lineHeight) + d.height > proxy.size.height {
+                                
+                                let width: CGFloat = (alignmentsSize
+                                    .map{ $0.width }
+                                    .max() ?? d.width) + viewModel(\.configuration).lineSpacing
+                                
+                                lineHeight = .zero
+                                lineWidth = -width
+                                result = lineWidth
+                            } else {
+                                result = lineWidth
+                            }
+                            
+                            
+                            let height: CGFloat = d.height + viewModel(\.configuration).itemSpacing
+                            let width: CGFloat = d.width
+                            alignmentsSize.append(CGSize(width: abs(lineWidth) + width, height: height))
+                            
+                            return result
+                        }
+                        .alignmentGuide(.top) { d in
+                            var result: CGFloat = .zero
+                            
+                            result -= lineHeight
+                            
+                            let height: CGFloat = d.height + viewModel(\.configuration).itemSpacing
+                            
+                            lineHeight += height
+                            
+                            return result
+                        }
+                    
+                    Color.clear
+                        .frame(width: .zero, height: .zero)
+                        .alignmentGuide(.leading, computeValue: { dimension in
+                            
+                            alignmentsSize = []
+                            lineWidth = .zero
+                            lineHeight = .zero
+                            
+                            return dimension[.leading]
+                        })
+                        .hidden()
+                }
+//                .background(setPreferenceSize())
+            }
+            .frame(width: frameSize.width)
+        }
+    }
+    
+    @ViewBuilder
+    var nonScrollVerticalView: some View {
+        GeometryReader { proxy in
+            ZStack(alignment: .topLeading) {
+                let _ = print("proxy size: \(proxy.size)")
+                var lineWidth: CGFloat = .zero
+                var lineHeight: CGFloat = .zero
+                var alignmentsSize: [CGSize] = []
+                
+                content()
+                    .anchorPreference(key: BoundsPreferenceKey.self, value: .bounds) { anchor in
+                        [anchor]
+                    }
+                    .alignmentGuide(.leading) { d in
+                        var result: CGFloat = .zero
+                        
+                        if abs(lineHeight) + d.height > proxy.size.height {
+                            
+                            let width: CGFloat = (alignmentsSize
+                                .map{ $0.width }
+                                .max() ?? d.width) + viewModel(\.configuration).lineSpacing
+                            
+                            lineHeight = .zero
+                            lineWidth = -width
+                            result = lineWidth
+                        } else {
+                            result = lineWidth
+                        }
+                        
+                        
+                        let height: CGFloat = d.height + viewModel(\.configuration).itemSpacing
+                        let width: CGFloat = d.width
+                        alignmentsSize.append(CGSize(width: abs(lineWidth) + width, height: height))
+                        
+                        return result
+                    }
+                    .alignmentGuide(.top) { d in
+                        var result: CGFloat = .zero
+                        
+                        result -= lineHeight
+                        
+                        let height: CGFloat = d.height + viewModel(\.configuration).itemSpacing
+                        
+                        lineHeight += height
+                        
+                        return result
+                    }
+                
+                Color.clear
+                    .frame(width: .zero, height: .zero)
+                    .alignmentGuide(.leading, computeValue: { dimension in
+                        
+                        alignmentsSize = []
+                        lineWidth = .zero
+                        lineHeight = .zero
+                        
+                        return dimension[.leading]
+                    })
+                    .hidden()
+            }
+            .background(setPreferenceSize())
+        }
+        .backgroundPreferenceValue(BoundsPreferenceKey.self) { value in
+            GeometryReader { proxy in
+                Color.clear
+                    .onAppear {
+                        print("back proxy: \(proxy.size)")
+                        let bounds: [CGRect] = value.map {
+                            print("bound : \(proxy[$0])")
+                            return proxy[$0]
+                        }
+                        
+                        let maxRect = bounds
+                                        .sorted(by: { $0.maxX >= $1.maxX })
+                                        .sorted(by: { $0.width > $1.width })
+                                        .first
+                        
+                        print("maxRect: \(maxRect)")
+                        
+                        if let maxRect {
+                            if maxRect.origin.x + maxRect.width > proxy.size.width {
+                                print("사이즈가 넘어버림")
+                                if case .scroll = viewModel(\.layoutMode) {
+                                    viewModel.action(.updIsOn(true))
+                                }
+                            } else {
+                                print("사이즈가 안넘어버림")
+                            }
+                        }
+                    }
+            }
+        }
     }
 }
 
