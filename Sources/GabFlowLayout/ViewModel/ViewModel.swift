@@ -23,11 +23,18 @@ class FlowLayoutViewModel: ObservableObject, FlowFeatures {
     
     
     struct FlowState: Equatable {
-        var scrollMode: Bool = false
+        
+        var configuration: FlowConfiguration = .zero
+        
+        var isOn: Bool = false
+        var layoutMode: FlowLayoutMode = .none
+        
     }
     
     enum FlowAction: Equatable {
-        case updScrollMode(Bool)
+        case updConfiguration(FlowConfiguration)
+        case updLayoutMode(FlowLayoutMode)
+        case updIsOn(Bool)
     }
     
     @Published private var state: FlowState = .init()
@@ -38,9 +45,14 @@ class FlowLayoutViewModel: ObservableObject, FlowFeatures {
     
     func action(_ action: Action) {
         switch action {
-        case .updScrollMode(let mode):
-            update(\.scrollMode, value: mode)
-//            print("scrollMode: \(state.scrollMode)")
+        case .updConfiguration(let config):
+            update(\.configuration, value: config)
+            
+        case .updLayoutMode(let mode):
+            update(\.layoutMode, value: mode)
+            
+        case .updIsOn(let state):
+            update(\.isOn, value: state)
         }
     }
 }

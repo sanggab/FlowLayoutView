@@ -11,7 +11,7 @@ import GabFlowLayout
 
 struct ContentView: View {
     
-    var list: [String] = [
+    @State var list: [String] = [
         "Sim",
         "Sang",
         "Gab",
@@ -56,10 +56,11 @@ struct ContentView: View {
                 .frame(width: 100, height: 300)
         }
         .configurationSpacing(line: 5, item: 5)
-        .scrollMode(true)
-//        .frame(width: 300, height: 300)
+        .layoutMode(.scroll(false))
+        .frame(width: 300, height: 300, alignment: .topTrailing)
 //        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.pink)
+        .padding(.all, 10)
     }
 }
 
