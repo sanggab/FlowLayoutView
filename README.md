@@ -164,36 +164,7 @@ SwiftUI에서 ChipView를 구현하기 위해선 Apple에서 iOS 16이상에서 
 
 ##### Usage example:
 ```swift
-FlowLayoutView(.vertical) {
-            ForEach(list, id: \.self) { string in
-                Text(string)
-                    .font(.headline)
-                    .padding(.all, 2)
-                    .background(.mint)
-                    .cornerRadius(8)
-            }
-            
-            Rectangle()
-                .fill(.pink)
-                .frame(width: 100, height: 500)
-            
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.blue)
-                .frame(width: 100, height: 500)
-        }
-        .configurationSpacing(line: 5, item: 5)
-        .layoutMode(.scroll(false))
-        .frame(width: 300, height: 300)
-        .padding(.all, 10)
-        .background(.gray)
-```
-
-<img src="doc_img/layoutMode/layoutMode_horizontal_scroll.gif" width="370"/> | <img src="doc_img/layoutMode/layoutMode_horizontal_scroll.gif" width="370"/>
---- | --- |
-
-##### Usage example:
-```swift
-FlowLayoutView(.vertical) {
+FlowLayoutView(.horizontal) {
             ForEach(list, id: \.self) { string in
                 Text(string)
                     .font(.headline)
@@ -217,4 +188,32 @@ FlowLayoutView(.vertical) {
         .background(.gray)
 ```
 
-<img src="doc_img/layoutMode/layoutMode_vertical_scroll.gif" width="370"/>
+<img src="doc_img/layoutMode/layoutMode_horizontal_none.jpg" width="370"/><img src="doc_img/layoutMode/layoutMode_horizontal_scroll.gif" width="370"/>
+
+##### Usage example:
+```swift
+FlowLayoutView(.vertical) {
+            ForEach(list, id: \.self) { string in
+                Text(string)
+                    .font(.headline)
+                    .padding(.all, 2)
+                    .background(.mint)
+                    .cornerRadius(8)
+            }
+            
+            Rectangle()
+                .fill(.pink)
+                .frame(width: 100, height: 500)
+            
+            RoundedRectangle(cornerRadius: 12)
+                .fill(.blue)
+                .frame(width: 100, height: 500)
+        }
+        .configurationSpacing(line: 5, item: 5)
+        .layoutMode(.scroll(false))
+        .frame(width: 300, height: 300)
+        .padding(.all, 10)
+        .background(.gray)
+```
+
+<img src="doc_img/layoutMode/layoutMode_vertical_none.jpg" width="370"/><img src="doc_img/layoutMode/layoutMode_vertical_scroll.gif" width="370"/>
