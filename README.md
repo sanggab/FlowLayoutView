@@ -146,10 +146,19 @@ SwiftUI에서 ChipView를 구현하기 위해선 Apple에서 iOS 16이상에서 
 FlowLayoutView를 구성할 때, frame을 지정안한경우 기본적으로 GeomtryReader에 의해   
 ZStack에 frame의 maxWidth, maxHeight을 `.infinity`로 준 것과 같은 공간을 차지합니다.
 
-근데 여기서 해당 flowLayout을 구성하는 방식은 alignmentGuide을 이용해서 View들을 배치하기 때문에 FlowLayoutView에 frame을 지정했는데,   
-만약 여기서 child View들의 크기가 부모의 frame보다 커버린 경우, 부모의 View를 뚫고 배치가 됩니다.
+근데 여기서 해당 flowLayout을 구성하는 방식은 alignmentGuide을 이용해서 View들을 배치하기 때문에 FlowLayoutView에 frame을 지정했는데, 여기서 child View들의 크기가 부모의 frame보다 커버린 경우, 부모의 View를 뚫고 배치가 됩니다.
 
+##### `Example Image`
 <img src="doc_img/layoutMode/layoutMode_none.jpg" width="370"/>
 
+
+그래서 해당 문제를 해결하는 방법인 layoutMode를 소개합니다!  
+
+layoutMode에는 아래와 같은 기능들이 있습니다.
+
+   | layoutMode | Description |
+   |:---------------------:|:------------------:|
+   | **`none`** | 기본적인 값. View들이 현재 부모의 크기를 Over해도 무시하고 배치합니다. |
+   | **`scroll(Bool)`** | View들이 현재 부모의 크기를 Over할 경우에 Scroll기능을 추가하는 기능입니다. Bool값은 ScrollIndicator의 값 입니다. |
 
 
