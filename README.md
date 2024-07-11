@@ -162,58 +162,69 @@ SwiftUI에서 ChipView를 구현하기 위해선 Apple에서 iOS 16이상에서 
    | **`scroll(Bool)`** | View들이 현재 부모의 크기를 Over할 경우에 Scroll기능을 추가하는 기능입니다. Bool값은 ScrollIndicator의 값 입니다. |
 
 
-##### Usage example:
-```swift
-FlowLayoutView(.horizontal) {
-            ForEach(list, id: \.self) { string in
-                Text(string)
-                    .font(.headline)
-                    .padding(.all, 2)
-                    .background(.mint)
-                    .cornerRadius(8)
-            }
-            
-            Rectangle()
-                .fill(.pink)
-                .frame(width: 300, height: 100)
-            
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.blue)
-                .frame(width: 350, height: 150)
-        }
-        .configurationSpacing(line: 5, item: 5)
-        .layoutMode(.scroll(false))
-        .frame(width: 300, height: 300)
-        .padding(.all, 10)
-        .background(.gray)
-```
+   ### `axis(.horizontal)`
 
-<img src="doc_img/layoutMode/layoutMode_horizontal_none.jpg" width="370"/><img src="doc_img/layoutMode/layoutMode_horizontal_scroll.gif" width="370"/>
+   ##### Usage example:
+   ```swift
+   FlowLayoutView(.horizontal) {
+               ForEach(list, id: \.self) { string in
+                   Text(string)
+                       .font(.headline)
+                       .padding(.all, 2)
+                       .background(.mint)
+                       .cornerRadius(8)
+               }
+               
+               Rectangle()
+                   .fill(.pink)
+                   .frame(width: 300, height: 100)
+               
+               RoundedRectangle(cornerRadius: 12)
+                   .fill(.blue)
+                   .frame(width: 350, height: 150)
+           }
+           .configurationSpacing(line: 5, item: 5)
+           .layoutMode(.scroll(false))
+           .frame(width: 300, height: 300)
+           .padding(.all, 10)
+           .background(.gray)
+   ```
 
-##### Usage example:
-```swift
-FlowLayoutView(.vertical) {
-            ForEach(list, id: \.self) { string in
-                Text(string)
-                    .font(.headline)
-                    .padding(.all, 2)
-                    .background(.mint)
-                    .cornerRadius(8)
-            }
-            
-            Rectangle()
-                .fill(.pink)
-                .frame(width: 100, height: 500)
-            
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.blue)
-                .frame(width: 100, height: 500)
-        }
-        .configurationSpacing(line: 5, item: 5)
-        .layoutMode(.scroll(false))
-        .frame(width: 300, height: 300)
-        .padding(.all, 10)
-        .background(.gray)
-```
+   | layoutMode | axis(horizontal) |
+   |:---------------------:|:------------------:
+   | none   | <img src="doc_img/layoutMode/layoutMode_horizontal_none.jpg" width="370"/> |
+   | scroll | <img src="doc_img/layoutMode/layoutMode_horizontal_scroll.gif" width="370"/> |
 
-<img src="doc_img/layoutMode/layoutMode_vertical_none.jpg" width="370"/><img src="doc_img/layoutMode/layoutMode_vertical_scroll.gif" width="370"/>
+
+   ### `axis(.vertical)`
+
+   ##### Usage example:
+   ```swift
+   FlowLayoutView(.vertical) {
+               ForEach(list, id: \.self) { string in
+                   Text(string)
+                       .font(.headline)
+                       .padding(.all, 2)
+                       .background(.mint)
+                       .cornerRadius(8)
+               }
+               
+               Rectangle()
+                   .fill(.pink)
+                   .frame(width: 100, height: 500)
+               
+               RoundedRectangle(cornerRadius: 12)
+                   .fill(.blue)
+                   .frame(width: 100, height: 500)
+           }
+           .configurationSpacing(line: 5, item: 5)
+           .layoutMode(.scroll(false))
+           .frame(width: 300, height: 300)
+           .padding(.all, 10)
+           .background(.gray)
+   ```
+
+   | layoutMode | axis(vertical) |
+   |:---------------------:|:------------------:
+   | none   | <img src="doc_img/layoutMode/layoutMode_vertical_none.jpg" width="370"/> |
+   | scroll | <img src="doc_img/layoutMode/layoutMode_vertical_scroll.gif" width="370"/> |
