@@ -57,8 +57,8 @@ class FlowLayoutViewModel: ObservableObject, FlowFeatures {
     }
 }
 
-extension FlowLayoutViewModel {
-    private func update<V>(_ keyPath: WritableKeyPath<State, V>, value: V) where V: Equatable {
+private extension FlowLayoutViewModel {
+    func update<V>(_ keyPath: WritableKeyPath<State, V>, value: V) where V: Equatable {
         state[keyPath: keyPath] = value
     }
 }
